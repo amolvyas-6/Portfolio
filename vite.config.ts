@@ -12,4 +12,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "https://amolvyas-6.github.io/Portfolio",
 });
