@@ -165,7 +165,7 @@ export const timeline: TimelineItem[] = [
 
 export const projects: ProjectItem[] = [
   {
-    id: "p1",
+    id: "work1",
     title: "Offline Wallet For the Blind",
     description:
       "Developed an offline NFC tap-to-pay wallet on ESP32 for blind users, featuring haptic PIN-based authentication with encrypted local storage for secure, screenless transactions.",
@@ -174,7 +174,7 @@ export const projects: ProjectItem[] = [
     featured: false,
   },
   {
-    id: "p2",
+    id: "work2",
     title: "Language Identification for Audio Spoofing Detection",
     description:
       "Developed a state-of-the-art Language Identification (LID) system under Samsung PRISM to detect physically replayed and spoofed Kannada audio.",
@@ -183,7 +183,7 @@ export const projects: ProjectItem[] = [
     featured: true,
   },
   {
-    id: "p3",
+    id: "per1",
     title: "Hand Sight",
     description:
       "Developed a hand gesture recognition system enabling touchless computer control. Implemented gesture, cursor, and ASL modes. Designed intuitive interactions for tasks like media control and window navigation. Integrated real-time tracking for seamless user experience.",
@@ -193,7 +193,7 @@ export const projects: ProjectItem[] = [
     featured: true,
   },
   {
-    id: "p4",
+    id: "per2",
     title: "Job Recommendation System",
     description:
       "Developed a website that allows users to upload their CV and in turn recommends them jobs based on their current skill set by leveraging techniques such as TF-IDF and cosine similarity. It also provides the user with a road-map to improve their skills and progress in their current field of work.",
@@ -211,13 +211,23 @@ export const projects: ProjectItem[] = [
     featured: true,
   },
   {
-    id: "p5",
+    id: "per3",
     title: "Adept AI",
     description:
       "Developed an AI-powered personal tutor, that is designed to be every student's personal academic GURU that will transform a student's digital learning library into an interactive and engaging learning experience.",
     type: "personal",
     tech: ["Python", "Node.js", "React", "Flask", "LangChain", "PyPDF2"],
     repoUrl: "https://github.com/amolvyas-6/Adept-AI",
+    featured: true,
+  },
+  {
+    id: "per4",
+    title: "Wildlife Detection using YOLOv8",
+    description:
+      "Developed a wildlife detection system using YOLOv8. Implemented message queuing with RabbitMQ for efficient data processing and S3 like storage solution using MinIO to store and retrieve images and detection results. Dockerized the entire application for easy deployment.",
+    type: "personal",
+    tech: ["Python", "RabbitMQ", "MinIO", "FastAPI", "YOLOv8", "Docker"],
+    repoUrl: "https://github.com/amolvyas-6/Wildlife-Detection-Using-AI",
     featured: true,
   },
 ];
