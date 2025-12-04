@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal, modern portfolio website built with React, TypeScript, and Tailwind CSS. Features a clean monospace design with dark/light mode support.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Responsive Design** – Optimized for all screen sizes
+- **Dark/Light Mode** – System preference detection with manual toggle
+- **Timeline Section** – Showcase experience and education
+- **Project Grid** – Filterable project showcase with tabs
+- **Monospace Aesthetic** – Clean, developer-focused typography
+- **Accessible** – Built with Radix UI primitives
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 19 + TypeScript
+- **Styling:** Tailwind CSS 4 + shadcn/ui components
+- **Build Tool:** Vite
+- **Icons:** Lucide React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 18+
+- npm or pnpm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/amolvyas-6/portfolio-website.git
+cd portfolio-website
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The site will be available at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/           # shadcn/ui components
+│   ├── HeroSection.tsx
+│   ├── ProjectCard.tsx
+│   ├── ProjectGrid.tsx
+│   ├── ProjectSection.tsx
+│   ├── ThemeToggle.tsx
+│   ├── TimelineList.tsx
+│   └── TimelineSection.tsx
+├── data/
+│   └── portfolio.ts  # Portfolio content (edit this!)
+├── lib/
+│   └── utils.ts
+├── App.tsx
+├── index.css
+└── main.tsx
+```
+
+## ️ Customization
+
+Edit `src/data/portfolio.ts` to update:
+
+- **Personal Details** – Name, headline, bio, contact info
+- **Skills** – Technical skills with icons
+- **Social Links** – GitHub, LinkedIn, etc.
+- **Timeline** – Work experience and education
+- **Projects** – Featured and personal projects
+
+## 📄 License
+
+MIT License – feel free to use this for your own portfolio!
+
+---
+
+Built by [Amol Vyas](https://github.com/amolvyas-6)
