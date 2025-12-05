@@ -21,6 +21,7 @@ import {
   Layers,
   Cog,
 } from "lucide-react";
+import TextType from "./TextType";
 
 interface HeroSectionProps {
   details: PersonalDetails;
@@ -85,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {details.name}
         </h1>
         <p className="font-mono text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl">
-          {details.headline}
+          <TextType text={[details.location, details.headline]} />
         </p>
         <p className="font-mono text-sm text-zinc-500 dark:text-zinc-500 max-w-xl leading-relaxed">
           {details.bio}

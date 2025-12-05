@@ -2,8 +2,9 @@ export interface PersonalDetails {
   name: string;
   displayName?: string;
   headline: string;
+  dob: string;
   role?: string;
-  location?: string;
+  location: string;
   email?: string;
   website?: string;
   bio: string;
@@ -47,10 +48,30 @@ export interface ProjectItem {
   featured?: boolean;
 }
 
+/**
+ * Calculate age from date of birth
+ */
+function calculateAge(dob: string): number {
+  const birthDate = new Date(dob);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+  return age;
+}
+
+const dob = "2005-06-30"; // Your date of birth (YYYY-MM-DD)
+
 export const personalDetails: PersonalDetails = {
   name: "Amol Vyas",
   displayName: "A. Vyas",
-  headline: "Building performant interfaces & delightful developer tools",
+  dob: dob,
+  headline: `${calculateAge(dob)} y/o`,
   role: "Software Engineer",
   location: "Bangalore, India",
   email: "amol.vyas0630@gmail.com",
