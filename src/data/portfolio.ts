@@ -237,8 +237,17 @@ export const projects: ProjectItem[] = [
     description:
       "Developed an AI-powered personal tutor, that is designed to be every student's personal academic GURU that will transform a student's digital learning library into an interactive and engaging learning experience.",
     type: "personal",
-    tech: ["Python", "Node.js", "React", "Flask", "LangChain", "PyPDF2"],
-    repoUrl: "https://github.com/amolvyas-6/Adept-AI",
+    tech: [
+      "Python",
+      "Node.js",
+      "React",
+      "Flask",
+      "LangChain",
+      "PyPDF2",
+      "tailwind",
+      "MongoDB",
+    ],
+    repoUrl: "https://github.com/JustAkshatG/ADEPT",
     featured: true,
   },
   {
