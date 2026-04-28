@@ -48,35 +48,18 @@ export interface ProjectItem {
   featured?: boolean;
 }
 
-/**
- * Calculate age from date of birth
- */
-function calculateAge(dob: string): number {
-  const birthDate = new Date(dob);
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < birthDate.getDate())
-  ) {
-    age--;
-  }
-  return age;
-}
-
 const dob = "2005-06-30"; // Your date of birth (YYYY-MM-DD)
 
 export const personalDetails: PersonalDetails = {
   name: "Amol Vyas",
   displayName: "A. Vyas",
   dob: dob,
-  headline: `${calculateAge(dob)} y/o`,
+  headline: "AI, ML & embedded systems builder",
   role: "Software Engineer",
   location: "Bangalore, India",
   email: "amol.vyas0630@gmail.com",
   website: "https://amolvyas.is-a.dev",
-  bio: "I have a keen interest in Artificial Intelligence and Machine Learning and am passionate about problem solving and learning new technologies",
+  bio: "I build thoughtful systems across AI, machine learning, and embedded hardware. I care about clear product thinking, clean interfaces, and shipping work that feels useful in the real world.",
 };
 
 export const keySkills: KeySkills[] = [
@@ -187,18 +170,18 @@ export const timeline: TimelineItem[] = [
 export const projects: ProjectItem[] = [
   {
     id: "work1",
-    title: "Offline Wallet For the Blind",
+    title: "Offline Tap-to-Pay Wallet",
     description:
-      "Developed an offline NFC tap-to-pay wallet on ESP32 for blind users, featuring haptic PIN-based authentication with encrypted local storage for secure, screenless transactions.",
+      "Built an offline NFC tap-to-pay wallet for blind users with haptic PIN entry and encrypted EEPROM storage. The interaction model was designed to work without a screen, internet, or visual feedback, keeping transactions fast and secure.",
     type: "work",
-    tech: ["ESP-IDF", "C", "Cpp", "PN532 NFC", "ESP32-S3", "ATC24C256 EEPROM"],
+    tech: ["ESP-IDF", "C", "C++", "PN532 NFC", "ESP32-S3", "AT24C256 EEPROM"],
     featured: false,
   },
   {
     id: "work2",
-    title: "Language Identification for Audio Spoofing Detection",
+    title: "LID for Audio Spoofing Detection",
     description:
-      "Developed a state-of-the-art Language Identification (LID) system under Samsung PRISM to detect physically replayed and spoofed Kannada audio.",
+      "Built a language identification system under Samsung PRISM to detect physically replayed and spoofed Kannada audio. The pipeline combines preprocessing, feature extraction, and PyTorch training to study robust anti-spoofing signals for voice systems.",
     type: "work",
     tech: ["PyTorch", "Python", "Deep Learning", "Signal Processing"],
     featured: true,
@@ -207,7 +190,7 @@ export const projects: ProjectItem[] = [
     id: "per1",
     title: "Hand Sight",
     description:
-      "Developed a hand gesture recognition system enabling touchless computer control. Implemented gesture, cursor, and ASL modes. Designed intuitive interactions for tasks like media control and window navigation. Integrated real-time tracking for seamless user experience.",
+      "Built a gesture recognition system for touchless computer control with gesture, cursor, and ASL modes. Focus was on smooth real-time tracking and practical shortcuts for media, navigation, and everyday desktop control.",
     type: "personal",
     tech: ["Python", "OpenCV", "MediaPipe", "Tkinter", "TensorFlow"],
     repoUrl: "https://github.com/amolvyas-6/GestureX/tree/amol",
@@ -217,7 +200,7 @@ export const projects: ProjectItem[] = [
     id: "per2",
     title: "Job Recommendation System",
     description:
-      "Developed a website that allows users to upload their CV and in turn recommends them jobs based on their current skill set by leveraging techniques such as TF-IDF and cosine similarity. It also provides the user with a road-map to improve their skills and progress in their current field of work.",
+      "Built a CV-based job recommendation tool that matches roles through TF-IDF and cosine similarity. It also generates a simple skill roadmap so users can see which capabilities to strengthen next.",
     type: "personal",
     tech: [
       "Python",
@@ -235,7 +218,7 @@ export const projects: ProjectItem[] = [
     id: "per3",
     title: "Adept AI",
     description:
-      "Developed an AI-powered personal tutor, that is designed to be every student's personal academic GURU that will transform a student's digital learning library into an interactive and engaging learning experience.",
+      "Built an AI-powered personal tutor that turns a digital learning library into an interactive study experience. The app blends retrieval, chat, and structured prompts so reading feels more active and guided.",
     type: "personal",
     tech: [
       "Python",
@@ -254,7 +237,7 @@ export const projects: ProjectItem[] = [
     id: "per4",
     title: "Wildlife Detection using YOLOv8",
     description:
-      "Developed a wildlife detection system using YOLOv8. Implemented message queuing with RabbitMQ for efficient data processing and S3 like storage solution using MinIO to store and retrieve images and detection results. Dockerized the entire application for easy deployment.",
+      "Built a wildlife detection system with YOLOv8, RabbitMQ, MinIO, and Docker. The pipeline queues inference jobs, stores outputs cleanly, and stays easy to deploy across environments.",
     type: "personal",
     tech: ["Python", "RabbitMQ", "MinIO", "FastAPI", "YOLOv8", "Docker"],
     repoUrl: "https://github.com/amolvyas-6/Wildlife-Detection-Using-AI",

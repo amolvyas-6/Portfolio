@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  compact?: boolean;
+}
+
+export function ThemeToggle({ compact }: ThemeToggleProps) {
   // Initialize theme from localStorage or system preference
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     // Check if we're in the browser
@@ -39,15 +44,15 @@ export function ThemeToggle() {
   return (
     <Button
       variant="ghost"
-      size="icon"
+      size={compact ? "sm" : "icon"}
       onClick={toggleTheme}
-      className="rounded-full"
+      className={cn("rounded-full transition-all duration-300 hover:bg-accent/10 hover:text-accent", compact ? "h-9 w-9 p-0" : "h-11 w-11")}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
     >
       {theme === "light" ? (
-        <Moon className="h-5 w-5" />
+        <Moon className={compact ? "h-4 w-4" : "h-5 w-5"} />
       ) : (
-        <Sun className="h-5 w-5" />
+        <Sun className={compact ? "h-4 w-4" : "h-5 w-5"} />
       )}
     </Button>
   );
