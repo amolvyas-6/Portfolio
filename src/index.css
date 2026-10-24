@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "@fontsource-variable/martian-mono/standard.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Martian Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-text: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-hero: clamp(5rem, 24vw, 26rem);
+  --text-hero--line-height: 0.85;
+  --text-section: clamp(2.5rem, 8vw, 7rem);
+  --text-section--line-height: 1;
+  --text-project: clamp(1.75rem, 5vw, 4.5rem);
+  --text-project--line-height: 1.05;
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.5;
+}
+
+/* inline: utilities reference the live vars so the flip scene can override them. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
+  --color-alert: var(--alert);
+}
+
+/* Palettes. The flip scene swaps to the opposite palette. */
+:root {
+  --pl-bg: #e4eae4;
+  --pl-surface: #eef2ee;
+  --pl-ink: #28372d;
+  --pl-muted: #5a6b5f;
+  --pl-rule: #c3cec4;
+  --pl-accent: #2e9e5b;
+  --pl-accent-ink: #0e1510;
+  --pl-accent-text: #1b6e3e;
+  --pl-alert: #b53433;
+
+  --pd-bg: #0b0f0c;
+  --pd-surface: #121813;
+  --pd-ink: #9fb5a4;
+  --pd-muted: #74887a;
+  --pd-rule: #1f2a22;
+  --pd-accent: #46c37b;
+  --pd-accent-ink: #0b0f0c;
+  --pd-accent-text: #46c37b;
+  --pd-alert: #e06c6a;
+}
+
+html.light,
+html.dark [data-scene="flip"] {
+  --bg: var(--pl-bg);
+  --surface: var(--pl-surface);
+  --ink: var(--pl-ink);
+  --muted: var(--pl-muted);
+  --rule: var(--pl-rule);
+  --accent: var(--pl-accent);
+  --accent-ink: var(--pl-accent-ink);
+  --accent-text: var(--pl-accent-text);
+  --alert: var(--pl-alert);
+}
+
+html.dark,
+html.light [data-scene="flip"] {
+  --bg: var(--pd-bg);
+  --surface: var(--pd-surface);
+  --ink: var(--pd-ink);
+  --muted: var(--pd-muted);
+  --rule: var(--pd-rule);
+  --accent: var(--pd-accent);
+  --accent-ink: var(--pd-accent-ink);
+  --accent-text: var(--pd-accent-text);
+  --alert: var(--pd-alert);
+}
+
+html {
+  scrollbar-gutter: stable;
+  color-scheme: dark;
+  background: var(--bg);
+}
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Static dot-grid texture. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: radial-gradient(var(--pd-ink) 0.6px, transparent 0.6px);
+  background-size: 6px 6px;
+}
+html.light body::before {
+  background-image: radial-gradient(var(--pl-ink) 0.6px, transparent 0.6px);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--alert) 40%, transparent);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@utility page-x {
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+@utility section-y {
+  padding-block: clamp(5rem, 12vw, 10rem);
+}
+@utility prose-w {
+  max-width: 68ch;
+}
+
+/* Dashed trace line (vertical). --c sets the colour. */
+.trace-v {
+  background: repeating-linear-gradient(to bottom, var(--c) 0 6px, transparent 6px 12px);
+}
+.trace-h {
+  background: repeating-linear-gradient(to right, var(--c) 0 6px, transparent 6px 12px);
+}
+
+/* Animated underline link. */
+.link-underline {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 0% 1px;
+  background-position: 100% 100%;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+@keyframes ping-dot {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+@keyframes scroll-hint {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(260%); }
+}
+@keyframes glitch {
+  0% { transform: translate(0); text-shadow: 3px 0 var(--alert), -3px 0 var(--accent); }
+  25% { transform: translate(-2px, 1px); text-shadow: -3px 0 var(--alert), 3px 0 var(--accent); }
+  50% { transform: translate(2px, -1px); text-shadow: 2px 1px var(--alert), -2px -1px var(--accent); }
+  75% { transform: translate(-1px, 0); text-shadow: -2px 0 var(--alert), 2px 0 var(--accent); }
+  100% { transform: translate(0); text-shadow: none; }
+}
+.glitch {
+  animation: glitch 0.45s steps(6) 1;
+}
+
+html.has-cursor,
+html.has-cursor * {
+  cursor: none;
+}
+
+/* Theme wipe: new view is clipped via JS. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+html.theme-fade,
+html.theme-fade * {
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s !important;
+}
+
+html.scroll-locked {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

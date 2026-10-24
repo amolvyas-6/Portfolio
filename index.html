@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>%TITLE%</title>
+    <meta name="description" content="%DESCRIPTION%" />
+    <meta name="theme-color" content="#0B0F0C" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="./favicon.ico" />
+    <link rel="canonical" href="%SITE_URL%" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="%TITLE%" />
+    <meta property="og:description" content="%DESCRIPTION%" />
+    <meta property="og:url" content="%SITE_URL%" />
+    <meta property="og:image" content="%SITE_URL%/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark")
+            t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.className = t;
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", t === "dark" ? "#0B0F0C" : "#E4EAE4");
+        } catch (e) {
+          document.documentElement.className = "dark";
+        }
+      })();
+    </script>
+    <script type="application/ld+json">
+      %JSON_LD%
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
