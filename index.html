@@ -1,19 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="https://amolvyas-6.github.io/Portfolio/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Amol Vyas | Software Engineer</title>
-    <script type="module" crossorigin src="https://amolvyas-6.github.io/Portfolio/assets/index-DX_lR9Xx.js"></script>
-    <link rel="stylesheet" crossorigin href="https://amolvyas-6.github.io/Portfolio/assets/index-AlPD0XJl.css">
+    <title>Amol Vyas | Software Development Engineer</title>
+    <meta name="description" content="Software Development Engineer building AI-powered applications. Based in Bangalore, India." />
+    <meta name="theme-color" content="#0B0F0C" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="./favicon.ico" />
+    <link rel="canonical" href="https://amolvyas.is-a.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Amol Vyas | Software Development Engineer" />
+    <meta property="og:description" content="Software Development Engineer building AI-powered applications. Based in Bangalore, India." />
+    <meta property="og:url" content="https://amolvyas.is-a.dev" />
+    <meta property="og:image" content="https://amolvyas.is-a.dev/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark")
+            t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.className = t;
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", t === "dark" ? "#0B0F0C" : "#E4EAE4");
+        } catch (e) {
+          document.documentElement.className = "dark";
+        }
+      })();
+    </script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"Amol Vyas","jobTitle":"Software Development Engineer","url":"https://amolvyas.is-a.dev","address":"Bangalore, India","sameAs":["https://github.com/amolvyas-6","https://www.linkedin.com/in/amol-vyas-918601293/"]}
+    </script>
+    <script type="module" crossorigin src="./assets/index-CRasMU-N.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-NG4wwleC.css">
   </head>
   <body>
     <div id="root"></div>
