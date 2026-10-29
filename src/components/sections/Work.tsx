@@ -18,7 +18,7 @@ const FILTERS: { id: Filter; label: string; count: number }[] = [
 export function Work() {
   const [filter, setFilter] = useState<Filter>("all");
   const [openId, setOpenId] = useState<string | null>(null);
-  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [_, setHoverId] = useState<string | null>(null);
 
   const visible = sorted.filter((p) => filter === "all" || p.type === filter);
 
