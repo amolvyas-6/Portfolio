@@ -1,0 +1,202 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{fontawesome5}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\setlength{\footskip}{4.1pt}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins - TIGHTENED FOR 1 PAGE FIT
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.2in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - REDUCED WHITESPACE
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Amol Vyas} \\ \vspace{2pt}
+    \small
+    \faMapMarker*~Bengaluru, Karnataka $|$
+    \faPhone*~9108012371 $|$
+    \faIcon{envelope}~\href{mailto:amol.vyas0630@gmail.com}{amol.vyas0630@gmail.com} \\
+    \faLinkedin~\href{https://www.linkedin.com/in/amol-vyas-918601293}{LinkedIn} $|$
+    \faGithub~\href{https://github.com/amolvyas-6}{GitHub} $|$
+    \faGlobe~\href{https://amolvyas.is-a.dev}{Portfolio}
+\end{center}
+\vspace{-12pt} % Pulling education up
+
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {RV College of Engineering}{Bengaluru, Karnataka, India}
+      {Bachelor of Engineering in Computer Science and Engineering — CGPA: 9.39/10}{Oct 2023 -- July 2027}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Engineering Intern}{May 2026 -- Jul 2026}
+      {LinkedIn}{Bengaluru, India}
+      \resumeItemListStart
+        \resumeItem{Engineered \textbf{Agentic AI} solutions within the Productivity Engineering department.}
+        \resumeItem{Designed and implemented the \textbf{memory layer} for the AI agent, optimizing context retention and operational efficiency.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Intern}{Jul 2025 -- Jan 2026}
+      {Samsung PRISM}{Bengaluru, India}
+      \resumeItemListStart
+        \resumeItem{Worked on building \textbf{deep learning–based models} for detecting \textbf{Physical Access Replay Attacks (PA)}.}
+        \resumeItem{Applied the models to \textbf{Kannada-language speech} for replay attack detection.}
+      \resumeItemListEnd
+
+
+    \resumeSubheading
+      {Founding Engineer}{Jun 2025 -- Jul 2025}
+      {Namma Pothole}{Bengaluru, India}
+      \resumeItemListStart
+        \resumeItem{Built a civic-tech platform consisting of a \textbf{WhatsApp bot and website} for Bengaluru citizens to register pothole complaints.}
+        \resumeItem{Developed backend services, WhatsApp bot logic, and frontend interfaces with \textbf{zone-wise admin login} for BBMP officials.}
+        \resumeItem{Project was \textbf{acknowledged and approved by BBMP} and completed with a team of founding engineers.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Project Intern}{Mar 2025 -- May 2025}
+      {Bhatiyani Astute Institute}{India}
+      \resumeItemListStart
+        \resumeItem{Developed an \textbf{offline NFC-based tap-to-pay wallet} on \textbf{ESP32} using \textbf{C}, implementing haptic feedback and encryption.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Hand Gesture Recognition System} $|$ \emph{Python, OpenCV, MediaPipe, TensorFlow}}{}
+      \resumeItemListStart
+        \resumeItem{Developed a hand gesture recognition system enabling \textbf{touchless computer control}.}
+        \resumeItem{Implemented gesture, cursor, and \textbf{ASL modes} using real-time hand tracking for tasks such as media control and window navigation.}
+        \resumeItem{Optimized the system for accuracy and responsiveness using \textbf{MediaPipe} and \textbf{OpenCV}.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{AI-Powered Legal Document Classification System} $|$ \emph{React, FastAPI, LangGraph, RAG, AWS}}{}
+      \resumeItemListStart
+        \resumeItem{Built an AI-driven platform to digitize and classify legal case documents including digital files, handwritten records, and evidence images.}
+        \resumeItem{Implemented \textbf{OCR-based ingestion} via Telegram bots for lawyers, clients, and judges, enabling structured case creation.}
+        \resumeItem{Developed a role-based web portal with separate access for the public, lawyers, and judges, including an \textbf{AI chatbot with RAG} for legal research.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt]
+  \small{
+    \item \textbf{Languages:} Python, C, C++, JavaScript, SQL, HTML, CSS
+    \item \textbf{Frameworks \& Platforms:} LangGraph, FastAPI, React, Express.js
+    \item \textbf{AI / ML:} PyTorch, Scikit-learn, YOLOv8, MediaPipe
+    \item \textbf{Databases \& Storage:} PostgreSQL, MongoDB, AWS S3
+    \item \textbf{Developer Tools:} Git, Docker, Linux, AWS, Google Cloud
+    \item \textbf{Libraries:} OpenCV, NumPy, pandas, Matplotlib
+  }
+\end{itemize}
+
+
+%-----------ACHIEVEMENTS & CERTIFICATIONS-----------
+\section{Achievements \& Certifications}
+\begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt]
+  \small{
+    \item Secured \textbf{4th position} at Argonyx ’24 (state-level 24-hour hackathon by RV University).
+    \item \textbf{Project officially authorized and acknowledged by BBMP} for civic deployment (Namma Pothole).
+    \item Took part in the \textbf{Google Cloud Skills Boost} program and earned skill badges in introductory and intermediate \textbf{Machine Learning and AI} courses.
+  }
+\end{itemize}
+
+
+
+%-------------------------------------------
+\end{document}

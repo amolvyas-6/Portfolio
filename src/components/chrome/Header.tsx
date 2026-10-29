@@ -3,6 +3,7 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { personalDetails } from "@/data/portfolio";
 import { useClock } from "@/hooks/useClock";
 import { scrollToId } from "@/lib/scroll";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 import { MenuOverlay } from "./MenuOverlay";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -48,6 +49,7 @@ export function Header() {
           </p>
 
           <div className="flex items-center gap-2">
+            <ResumeButton className="hidden sm:inline-flex" />
             <ThemeToggle />
             <button
               ref={buttonRef}

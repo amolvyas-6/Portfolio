@@ -6,6 +6,7 @@ import { NAV } from "@/lib/nav";
 import { personalDetails, projects, socialLinks, timeline, keySkills } from "@/data/portfolio";
 import { ScrambleText } from "@/components/text/ScrambleText";
 import { LinkText } from "@/components/ui/LinkText";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 import { ThemeToggle } from "./ThemeToggle";
 
 interface Props {
@@ -132,6 +133,9 @@ export function MenuOverlay({ open, onClose, buttonRef }: Props) {
           <div data-menu-item className="flex items-center justify-between border-b border-rule pb-4">
             <span className="text-muted">Theme</span>
             <ThemeToggle />
+          </div>
+          <div data-menu-item className="sm:hidden">
+            <ResumeButton className="w-full" />
           </div>
           <ul data-menu-item className="flex flex-col gap-2">
             {personalDetails.email && (

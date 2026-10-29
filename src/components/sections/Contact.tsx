@@ -3,6 +3,7 @@ import { personalDetails, socialLinks } from "@/data/portfolio";
 import { SectionTitle } from "@/components/text/SectionTitle";
 import { LinkText } from "@/components/ui/LinkText";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 
 type Status = "idle" | "copied" | "error";
 
@@ -54,6 +55,12 @@ export function Contact() {
             </p>
           </div>
         )}
+
+        <div className="mt-10">
+          <Magnetic className="inline-block">
+            <ResumeButton size="lg" />
+          </Magnetic>
+        </div>
 
         <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
           {email && (

@@ -7,6 +7,7 @@ export interface PersonalDetails {
   location: string;
   email?: string;
   website?: string;
+  resume?: { path: string; filename: string };
   bio: string;
 }
 
@@ -60,6 +61,7 @@ export const personalDetails: PersonalDetails = {
   location: "Bangalore, India",
   email: "amol.vyas0630@gmail.com",
   website: "https://amolvyas.is-a.dev",
+  resume: { path: "resume.pdf", filename: "Amol_Vyas_Resume.pdf" },
   bio: "I'm a software development engineer who likes turning AI into products people actually use. I build backends, agents, and bots that hold up in production, from an internal helpdesk agent at LinkedIn to a citizen-run pothole reporting platform for Bangalore. I care about clear product thinking, clean interfaces, and shipping work that feels useful in the real world.",
 };
 
@@ -196,7 +198,7 @@ export const timeline: TimelineItem[] = [
     location: "Bangalore, India",
     description: [
       "Pursuing Bachelor's in Computer Science and Engineering",
-      "CGPA: 9.46/10",
+      "CGPA: 9.39/10",
     ],
   },
   {
