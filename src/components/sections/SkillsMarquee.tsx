@@ -7,9 +7,9 @@ import { Chip } from "@/components/ui/Chip";
 
 function SkillChip({ skill }: { skill: KeySkills }) {
   return (
-    <Chip className="gap-2 px-3 py-2 text-base text-ink">
+    <Chip className="inline-flex items-center gap-2.5 px-3.5 py-2 text-sm sm:text-base leading-none text-ink select-none">
       <SkillIcon name={skill.icon} className="size-4 text-accent-text" />
-      {skill.name}
+      <span>{skill.name}</span>
     </Chip>
   );
 }
@@ -18,6 +18,8 @@ const rows: KeySkills[][] = [
   keySkills.filter((_, i) => i % 2 === 0),
   keySkills.filter((_, i) => i % 2 === 1),
 ];
+
+const COPIES = [0, 1, 2, 3];
 
 /** Two opposing marquees whose speed reacts to scroll velocity and slows on hover. */
 export function SkillsMarquee() {
@@ -31,8 +33,8 @@ export function SkillsMarquee() {
         const tweens = tracks.map((track, i) =>
           gsap.fromTo(
             track,
-            { xPercent: i % 2 ? -50 : 0 },
-            { xPercent: i % 2 ? 0 : -50, duration: 40, ease: "none", repeat: -1 },
+            { xPercent: i % 2 ? -25 : 0 },
+            { xPercent: i % 2 ? 0 : -25, duration: 40, ease: "none", repeat: -1 },
           ),
         );
         let hovering = false;
@@ -79,22 +81,29 @@ export function SkillsMarquee() {
 
   if (reduced) {
     return (
-      <ul className="flex flex-wrap gap-3 page-x" aria-label="Skills">
-        {keySkills.map((s) => (
-          <li key={s.id}>
-            <SkillChip skill={s} />
-          </li>
-        ))}
-      </ul>
+      <div className="mx-auto max-w-[1600px] page-x">
+        <ul className="flex flex-wrap gap-3" aria-label="Skills">
+          {keySkills.map((s) => (
+            <li key={s.id}>
+              <SkillChip skill={s} />
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
   return (
-    <div ref={root} className="flex flex-col gap-3 overflow-hidden" role="group" aria-label="Skills">
+    <div
+      ref={root}
+      className="relative flex flex-col gap-3 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_48px,black_calc(100%-48px),transparent)]"
+      role="group"
+      aria-label="Skills"
+    >
       {rows.map((row, i) => (
         <div key={i} className="flex w-max" data-track>
-          {[0, 1].map((copy) => (
-            <ul key={copy} className="flex shrink-0 gap-3 pr-3" aria-hidden={copy === 1 ? true : undefined}>
+          {COPIES.map((copy) => (
+            <ul key={copy} className="flex shrink-0 gap-3 pr-3" aria-hidden={copy > 0 ? true : undefined}>
               {row.map((s) => (
                 <li key={s.id}>
                   <SkillChip skill={s} />

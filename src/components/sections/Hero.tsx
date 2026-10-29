@@ -38,14 +38,24 @@ export function Hero({ ready }: { ready: boolean }) {
   // Entrance: runs once the loader curtain opens (or immediately when there is no loader).
   useGSAP(
     () => {
-      motionOk(() => {
+      return motionOk(() => {
         const letters = gsap.utils.toArray<HTMLElement>("[data-letter]");
         const fades = gsap.utils.toArray<HTMLElement>("[data-fade]");
-        gsap.set(letters, { yPercent: 110 });
-        gsap.set(fades, { opacity: 0 });
-        if (!ready) return;
-        gsap.to(letters, { yPercent: 0, duration: 1.1, stagger: 0.07, ease: "expo.out", delay: 0.1 });
-        gsap.to(fades, { opacity: 1, duration: 0.9, delay: 0.7, stagger: 0.1 });
+        if (!ready) {
+          gsap.set(letters, { yPercent: 110 });
+          gsap.set(fades, { opacity: 0 });
+          return;
+        }
+        gsap.fromTo(
+          letters,
+          { yPercent: 110 },
+          { yPercent: 0, duration: 1.1, stagger: 0.07, ease: "expo.out", delay: 0.1, overwrite: "auto" },
+        );
+        gsap.fromTo(
+          fades,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.9, delay: 0.7, stagger: 0.1, overwrite: "auto" },
+        );
       });
     },
     { scope: root, dependencies: [ready] },

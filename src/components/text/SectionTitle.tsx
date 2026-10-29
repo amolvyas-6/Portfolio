@@ -14,21 +14,26 @@ export function SectionTitle({ id, children, className }: Props) {
 
   useGSAP(
     () => {
-      motionOk(() => {
+      return motionOk(() => {
         const el = ref.current;
         if (!el) return;
-        SplitText.create(el, {
+        const split = SplitText.create(el, {
           type: "chars",
           mask: "chars",
           onSplit: (self) =>
-            gsap.from(self.chars, {
-              yPercent: 110,
-              duration: 0.9,
-              stagger: 0.04,
-              ease: "expo.out",
-              scrollTrigger: { trigger: el, start: "top 88%", once: true },
-            }),
+            gsap.fromTo(
+              self.chars,
+              { yPercent: 110 },
+              {
+                yPercent: 0,
+                duration: 0.9,
+                stagger: 0.04,
+                ease: "expo.out",
+                scrollTrigger: { trigger: el, start: "top 88%", once: true },
+              },
+            ),
         });
+        return () => split.revert();
       });
     },
     { scope: ref },

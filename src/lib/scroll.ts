@@ -1,4 +1,5 @@
 import type Lenis from "lenis";
+import { ScrollTrigger } from "@/lib/gsap";
 
 let instance: Lenis | null = null;
 
@@ -21,8 +22,12 @@ export function scrollToId(id: string) {
 
 export function lockScroll(lock: boolean) {
   document.documentElement.classList.toggle("scroll-locked", lock);
-  if (lock) instance?.stop();
-  else instance?.start();
+  if (lock) {
+    instance?.stop();
+  } else {
+    instance?.start();
+    ScrollTrigger.refresh();
+  }
 }
 
 /** True when the intro loader should play (first visit this session, motion allowed). */

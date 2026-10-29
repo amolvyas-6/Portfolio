@@ -152,7 +152,7 @@ export const timeline: TimelineItem[] = [
     title: "Research Intern",
     organization: "Samsung PRISM",
     startDate: "2025-05",
-    endDate: null,
+    endDate: "2026-01",
     location: "Remote",
     description: [
       "Developed a state-of-the-art Language Identification (LID) system to detect physical replay-based audio spoofing in Kannada",

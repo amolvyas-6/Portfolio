@@ -5,6 +5,7 @@ import {
   SiFastapi,
   SiGit,
   SiLangchain,
+  SiLanggraph,
   SiMongodb,
   SiNodedotjs,
   SiPython,
@@ -21,6 +22,7 @@ const ICONS: Record<string, IconType> = {
   tailwind: SiTailwindcss,
   python: SiPython,
   fastapi: SiFastapi,
+  langgraph: SiLanggraph,
   langchain: SiLangchain,
   mongodb: SiMongodb,
   redis: SiRedis,
@@ -35,10 +37,13 @@ export function SkillIcon({ name, className }: { name?: string; className?: stri
   const Icon = name ? ICONS[name] : undefined;
   if (!Icon) {
     return (
-      <span aria-hidden className={`${className ?? ""} whitespace-nowrap`}>
+      <span
+        aria-hidden
+        className={`inline-flex items-center justify-center font-mono text-[10px] leading-none shrink-0 ${className ?? ""}`}
+      >
         {"{ }"}
       </span>
     );
   }
-  return <Icon aria-hidden className={className} />;
+  return <Icon aria-hidden className={`shrink-0 ${className ?? ""}`} />;
 }

@@ -13,22 +13,27 @@ export function RevealText({ as: Tag = "p", className, children }: Props) {
 
   useGSAP(
     () => {
-      motionOk(() => {
+      return motionOk(() => {
         const el = ref.current;
         if (!el) return;
-        SplitText.create(el, {
+        const split = SplitText.create(el, {
           type: "lines",
           mask: "lines",
           autoSplit: true,
           onSplit: (self) =>
-            gsap.from(self.lines, {
-              yPercent: 100,
-              duration: 0.9,
-              stagger: 0.08,
-              ease: "expo.out",
-              scrollTrigger: { trigger: el, start: "top 90%", once: true },
-            }),
+            gsap.fromTo(
+              self.lines,
+              { yPercent: 100 },
+              {
+                yPercent: 0,
+                duration: 0.9,
+                stagger: 0.08,
+                ease: "expo.out",
+                scrollTrigger: { trigger: el, start: "top 90%", once: true },
+              },
+            ),
         });
+        return () => split.revert();
       });
     },
     { scope: ref },

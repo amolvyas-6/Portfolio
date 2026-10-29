@@ -21,11 +21,11 @@ interface Ripple {
   born: number;
 }
 
-const GLOW_RADIUS = 120;
-const RIPPLE_LIFE = 0.9;
-const RIPPLE_SPEED = 320;
-const RIPPLE_THICKNESS = 26;
-const MAX_RIPPLES = 10;
+const GLOW_RADIUS = 60;
+const RIPPLE_LIFE = 0.6;
+const RIPPLE_SPEED = 300;
+const RIPPLE_THICKNESS = 20;
+const MAX_RIPPLES = 5;
 
 function buildMask(lines: string[], grid: Grid): Uint8Array {
   const { cols, rows, cellW, cellH } = grid;

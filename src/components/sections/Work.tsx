@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { projects } from "@/data/portfolio";
 import { SectionTitle } from "@/components/text/SectionTitle";
-import { ProjectPreview } from "./ProjectPreview";
 import { ProjectRow } from "./ProjectRow";
 
 type Filter = "all" | "work" | "personal";
@@ -68,7 +67,7 @@ export function Work() {
           </AnimatePresence>
         </motion.ul>
       </div>
-      <ProjectPreview id={hoverId} />
+      {/* <ProjectPreview id={hoverId} /> */}
     </section>
   );
 }
